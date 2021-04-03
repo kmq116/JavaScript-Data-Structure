@@ -1,6 +1,6 @@
 # JavaScript-Data-Structure
 Getting started with data structure
-
-## npm install
-
-## npm run dev
+## 安装依赖
+`npm install`
+## 运行项目
+`npm run dev`
