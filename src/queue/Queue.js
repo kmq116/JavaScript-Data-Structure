@@ -29,6 +29,38 @@ export default class Queue {
     return this.items.length;
   }
 }
+
+class QueueElement {
+  constructor(element, priority) {
+    this.element = element;
+    this.priority = priority;
+  }
+}
+
+export class PriorityQueue extends Queue {
+  enqueue(element, priority) {
+    //   创建元素
+    const queueElement = new QueueElement(element, priority);
+
+    // 为空直接插入
+    if (this.isEmpty()) this.items.push(queueElement);
+    else {
+      let added = false;
+      for (let i = 0; i < this.items.length; i++) {
+        //   判断优先级
+        if (this.items[i].priority > queueElement.priority) {
+          this.items.splice(i, 0, queueElement);
+          added = true;
+          break;
+        }
+      }
+      // 如果优先级不足 插入到最后
+      if (!added) {
+        this.items.push(queueElement);
+      }
+    }
+  }
+}
 /**
  *
  * @param {Array} nameList 人名数组
