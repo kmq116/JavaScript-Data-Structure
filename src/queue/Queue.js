@@ -1,6 +1,6 @@
 // 队列 先进先出 可基于数组实现
 
-export default class Queue {
+export class Queue {
   constructor() {
     this.items = [];
   }
@@ -27,6 +27,10 @@ export default class Queue {
   // 队列长度
   size() {
     return this.items.length;
+  }
+  // 转为字符串
+  toString(callback) {
+    return this.items.toString(callback);
   }
 }
 
